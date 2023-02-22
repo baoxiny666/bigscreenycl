@@ -1,6 +1,14 @@
 .left_interval{
 	height:25px;
 }
+.left_title{
+	width: 455px;
+	height:50px;
+	color: #1AE6E6;
+	font-weight: bold;
+	line-height: 50px;
+	text-align: center;
+}
 .left_wxjxxzb_out{
 	width: 480px;
 	height:265px;
