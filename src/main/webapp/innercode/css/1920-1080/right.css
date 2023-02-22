@@ -1,0 +1,35 @@
+.right_interval{
+	height:25px;
+}
+.right_csdkjl_out{
+	width: 480px;
+	height:415px;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+}
+.right_csdkjl {
+	width:455px;
+	height:415px;
+	background-image:url('../../img/rightkk.png');
+	background-repeat:no-repeat;
+	background-size: 455px 415px;
+	background-position: center center;
+}
+
+
+.right_fcdkjl_out{
+	width: 480px;
+	height:435px;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+}
+.right_fcdkjl {
+	width:455px;
+	height:435px;
+	background-image:url('../../img/rightkk.png');
+	background-repeat:no-repeat;
+	background-size: 455px 435px;
+	background-position: center center;
+}

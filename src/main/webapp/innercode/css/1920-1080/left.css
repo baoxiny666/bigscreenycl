@@ -1,0 +1,51 @@
+.left_interval{
+	height:25px;
+}
+.left_wxjxxzb_out{
+	width: 480px;
+	height:265px;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+}
+.left_wxjxxzb {
+	width:455px;
+	height:265px;
+	background-image:url('../../img/leftkk.png');
+	background-repeat:no-repeat;
+	background-size: 455px 265px;
+	background-position: center center;
+}
+
+
+.left_ryjccqs_out{
+	width: 480px;
+	height:265px;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+}
+.left_ryjccqs {
+	width:455px;
+	height:265px;
+	background-image:url('../../img/leftkk.png');
+	background-repeat:no-repeat;
+	background-size: 455px 265px;
+	background-position: center center;
+}
+.left_dkcstj_out{
+	width: 480px;
+	height:300px;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+}
+.left_dkcstj {
+	width:455px;
+	height:300px;
+	background-image:url('../../img/leftkk.png');
+	background-repeat:no-repeat;
+	background-size: 455px 300px;
+	background-position: center center;
+}
+
