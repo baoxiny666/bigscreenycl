@@ -1,135 +1,163 @@
 let option = {
-    xAxis: {
-        //name: '日期',//y轴名称
-        nameGap: 30,
-        type: 'category',
-        boundaryGap: false,
-        //设置x轴的刻度坐标展示数据，会覆盖series中数据的name属性【也是设置x轴的刻度坐标的展示数据，如果这里没有设置data,而x轴的刻度坐标没有展示数据的话，这里可以添加data进行覆盖展示】
-        // data: tendencyNameData,
-        axisLabel: {//x轴文本的样式
-            show: true,
-            textStyle: {
-                color: '#647CA7',
-                fontSize: '12',
-                left: '20'
-            }
-
-        },
-        axisLine: {//x轴的样式
-            //设置箭头方法一
-            // symbolOffset: 50,
-            // symbolSize: [35, 38],
-
-            // symbol: ['none', 'arrow'],    //只在末端显示箭头
-
-            //设置箭头方法二
-            symbol: ['none', 'path://M5, 20 L5, 5 L8, 8 L5, 2 L2, 8 L5, 5 L5.3, 6 L5.3,20'],
-            symbolOffset: 5,//箭头与轴线的间距
-            symbolSize: [35, 38],
-            lineStyle: {
-                color: '#657BA7'
-            }
-        }
-    },
-    yAxis: {
-        name: '人次',
-        nameGap: 30,
-        type: 'value',
-        splitLine: {//去除网格线
-            show: false
-        },
-        //boundaryGap: [0, '30%'],
-        axisLabel: {
-            show: true,
-            textStyle: {
-                color: '#647CA7',
-                fontSize: '12'
-            }
-        },
-        axisLine: {
-            //只在末端显示箭头,但是箭头的样式、箭头与轴线没有连线等不可调所以用以下方法
-            symbol: ['none', 'path://M5, 20 L5, 5 L8, 8 L5, 2 L2, 8 L5, 5 L5.3, 6 L5.3,20'],//绘制箭头
-            symbolOffset: 5,//箭头与轴线的间距
-            symbolSize: [35, 38],//箭头 大小
-
-            lineStyle: {
-                color: '#657BA7'
-            }
-        }
-    },
-    //设置渐变色需要去掉visualMap属性
-    // visualMap: {
-    //     type: 'piecewise',
-    //     show: false,
-    //     dimension: 0,
-    //     seriesIndex: 0,
-    //     // pieces: [{
-    //     //     gt: 1,
-    //     //     lt: 3,
-    //     //     color: 'rgba(0, 180, 0, 0.5)'
-    //     // }, {
-    //     //     gt: 5,
-    //     //     lt: 7,
-    //     //     color: 'rgba(0, 180, 0, 0.5)'
-    //     // }]
-    // },
-    series: [
-        {
-            type: 'line',
-            smooth: true,//折点处圆滑，即折线变为圆滑的曲线
-            // symbol: 'none',
-            // lineStyle: {
-            //     color: 'green',
-            //     width: 2
-            // },
-
-            itemStyle: {
-                normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0, color: '#E93CA7' // 0% 处的颜色
-                        }, {
-                            offset: 0.4, color: '#EA8FC7' // 100% 处的颜色
-                        }, {
-                            offset: 1, color: '#657BA7' // 100% 处的颜色
-                        }]
-                    ), //背景渐变色
-                    lineStyle: {        // 系列级个性化折线样式
-                        width: 3,
-                        type: 'solid',
-                        color: "#E93CA7" //折线的颜色
-                    }
+    tooltip: {
+        trigger: 'axis',
+        formatter:function(params){
+            debugger;
+            let text = '';
+            for(let i = 0;i<params.length;i++){
+                if(i==0){
+                    text+=params[0].axisValue+"<br/>";
                 }
-            },//线条样式
-            symbolSize: 10, //折线点的大小
-            label: {
-                normal: {
-                    show: true,
-                    position: 'top',
-                    textStyle: {
-                        color: 'red'
-                    }
+                text += params[i].seriesName +
+                    "人次：" + params[i].value+"<br/>";
+            }
+            return text
+        },
+    },
+    legend: {
+        data: ['进厂', '出厂'],
+        icon: 'rect',
+        itemWidth: 15,
+        itemHeight: 6,
+        //图例前面的图标形状
+        textStyle: {                            //图例文字的样式
+            color: '#999999',               //图例文字颜色
+            fontSize: 12               //图例文字大小
+        }
+    },
+    grid: {
+        left: "10%",
+        top: "10%",
+        right: "5%",
+        bottom: "15%"
+    },
+    xAxis: [
+        {
+            type: 'category',
+            boundaryGap: false,
+            splitLine:{show:false}, //去除网状线 默认为true
+            //用于设置y轴的字体
+            axisLabel:{
+                show:true,  //这里的show用于设置是否显示y轴下的字体 默认为true
+                textStyle:{   //textStyle里面写y轴下的字体的样式
+                    color:'#ffffff',
+                    fontSize:13
                 }
             },
-            areaStyle: { normal: {} },
-            data: [
-                ['10.1', 200],
-                ['10.2', 400],
-                ['10.3', 650],
-                ['10.4', 500],
-                ['10.5', 250],
-                ['10.6', 300],
-                ['10.7', 450],
-                ['日期', null]
-            ]
+            //用于设置y轴的那一条线
+            axisLine:{
+                show:true,  //这里的show用于设置是否显示y轴那一条线 默认为true
+                lineStyle:{ //lineStyle里面写y轴那一条线的样式
+                    color:'#475164',
+                    width:2,    //轴线的粗细 我写的是2 最小为0，值为0的时候线隐藏
+                }
+            },
+            data: ['2-22','2-23','2-24', '2-25', '2-26', '2-27', '2-28']
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            splitLine:{show:false},
+            axisLabel:{
+                show:true,
+                textStyle:{
+                    color:'#ffffff',
+                    fontSize:13
+                }
+            },
+            axisLine:{
+                show:true,
+                lineStyle:{
+                    color:'#475164',
+                    width:2
+                }
+            },
+        }
+    ],
+    series: [
+        {
+            name: '进厂',
+            type: 'line',
+            smooth: true,
+            itemStyle: {
+                color: "#4ACBC6"
+            },
+            lineStyle: {
+                color: '#4ACBC6',
+                width: 1,
+                opacity: 1,
+            },
+            symbol: "circle",
+            symbolSize: 1,
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: 'rgba(74,203,198,0.8)' // 0% 处的颜色
+                    }, {
+                        offset: 0.5,
+                        color: 'rgba(74,203,198,0.6)' // 0% 处的颜色
+                    }, {
+                        offset: 1,
+                        color: 'rgba(74,203,198,0.2)'// 100% 处的颜色
+                    }],
+                    global: false // 缺省为 false
+                }
+            },
+            data: [120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name: '出厂',
+            type: 'line',
+            smooth: true,
+            itemStyle: {
+                color: "#3589AA"
+            },
+            lineStyle: {
+                color: '#3589AA',
+                width: 1,
+                opacity: 1,
+            },
+            symbol: "circle",
+            symbolSize: 1,
+            areaStyle: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: 'rgba(53,137,170,0.8)' // 0% 处的颜色
+                    }, {
+                            offset: 0.5,
+                            color: 'rgba(53,137,170,0.6)' // 0% 处的颜色
+                    }, {
+                        offset: 1,
+                        color: 'rgba(53,137,170,0.2)'// 100% 处的颜色
+                    }],
+                    global: false // 缺省为 false
+                }
+            },
+            data: [220, 182, 191, 234, 290, 330, 310]
         }
     ]
 };
 
+var myChartRyjcLeft;
 $(function(){
     debugger;
     console.log(2222);
-    var myChartRyjcLeft = echarts.init(document.getElementById('left_ryjccqs_charts'));
+    myChartRyjcLeft = echarts.init(document.getElementById('left_ryjccqs_charts'));
     myChartRyjcLeft.setOption(option);
+    myChartRyjcLeft.resize();
 })
 
 
@@ -137,3 +165,4 @@ $(function(){
 window.addEventListener("resize", function () {
     myChartRyjcLeft.resize();
 });
+

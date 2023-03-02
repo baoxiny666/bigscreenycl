@@ -61,7 +61,6 @@ $(function () {
 })
 
 
-
 let option_right = {
     tooltip: {
         trigger: 'item',
