@@ -11,6 +11,16 @@
 	<script type="text/javascript">
 		var basePath = '<%=basePath%>';
 	</script>
+	<style type="text/css">
+		@font-face {
+			font-family: 'DS-Digital';
+			src:
+					url(/css/font-family/DS-DIGIT-4.ttf),
+					url(/css/font-family/DS-DIGII-3.ttf),
+					url(/css/font-family/DS-DIGIB-2.ttf),
+					url(/css/font-family/DS-DIGI-1.ttf);
+		}
+	</style>
 	<link rel="stylesheet" href="./css/index1920-1080.css">
 	<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="./js/echarts.min.js"></script>

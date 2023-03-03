@@ -153,8 +153,6 @@ let option = {
 
 var myChartRyjcLeft;
 $(function(){
-    debugger;
-    console.log(2222);
     myChartRyjcLeft = echarts.init(document.getElementById('left_ryjccqs_charts'));
     myChartRyjcLeft.setOption(option);
     myChartRyjcLeft.resize();

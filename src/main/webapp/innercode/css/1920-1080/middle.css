@@ -8,6 +8,14 @@
 	justify-content:center;
 	align-items:center;
 }
+.middle_title{
+	width: 935px;
+	height:50px;
+	color: #1AE6E6;
+	font-weight: bold;
+	line-height: 50px;
+	text-align: center;
+}
 .middle_jccryfx {
 	width:935px;
 	height:555px;
@@ -17,6 +25,53 @@
 	background-position: center center;
 }
 
+.middle_jccryfx_l1_jcrs {
+	width:100%;
+	height: 210px;
+}
+
+.middle_jccryfx_l1_jcrs .title{
+	width: 100%;
+	height:50px;
+	display: flex;
+	justify-content: flex-start
+}
+.middle_jccryfx_l1_jcrs .titlexiam{
+	width: 100%;
+	height:40px;
+	display: flex;
+	justify-content: flex-start
+}
+
+.middle_xzp{
+	width: 70px;
+	height:20px;
+	background-image:url('../../img/dxtq.png');
+	background-repeat:no-repeat;
+	background-size: 70px 20px;
+	background-position: center center;
+	margin-left: 50px;
+	position: relative;
+}
+
+.dzpttt_left_inner{
+	width: 108px;
+	height:71px;
+	background-image:url('../../img/bluering.png');
+	background-repeat:no-repeat;
+	background-size: 108px 71px;
+	background-position: center center;
+	position: absolute;
+}
+.dzpttt_right_inner{
+	width: 108px;
+	height:71px;
+	background-image:url('../../img/greenring.png');
+	background-repeat:no-repeat;
+	background-size: 108px 71px;
+	background-position: center center;
+	position: absolute;
+}
 
 .middle_fkryjcrsfx_out{
 	width: 960px;
