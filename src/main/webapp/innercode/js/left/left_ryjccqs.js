@@ -59,6 +59,8 @@ let option = {
         {
             type: 'value',
             splitLine:{show:false},
+            min:3000,
+            max:7000,
             axisLabel:{
                 show:true,
                 textStyle:{
@@ -81,11 +83,11 @@ let option = {
             type: 'line',
             smooth: true,
             itemStyle: {
-                color: "#4ACBC6"
+                color: "rgba(85,250,229)"
             },
             lineStyle: {
-                color: '#4ACBC6',
-                width: 1,
+                color: 'rgba(85,250,229)',
+                width: 2,
                 opacity: 1,
             },
             symbol: "circle",
@@ -99,13 +101,13 @@ let option = {
                     y2: 1,
                     colorStops: [{
                         offset: 0,
-                        color: 'rgba(74,203,198,0.8)' // 0% 处的颜色
+                        color: 'rgba(85,250,229,0.6)' // 0% 处的颜色
                     }, {
                         offset: 0.5,
-                        color: 'rgba(74,203,198,0.6)' // 0% 处的颜色
+                        color: 'rgba(85,250,229,0.6)' // 0% 处的颜色
                     }, {
                         offset: 1,
-                        color: 'rgba(74,203,198,0.2)'// 100% 处的颜色
+                        color: 'rgba(85,250,229,0.2)'// 100% 处的颜色
                     }],
                     global: false // 缺省为 false
                 }
@@ -117,11 +119,11 @@ let option = {
             type: 'line',
             smooth: true,
             itemStyle: {
-                color: "#3589AA"
+                color: "rgb(19,193,240)"
             },
             lineStyle: {
-                color: '#3589AA',
-                width: 1,
+                color: 'rgb(19,193,240)',
+                width: 2,
                 opacity: 1,
             },
             symbol: "circle",
@@ -135,13 +137,13 @@ let option = {
                     y2: 1,
                     colorStops: [{
                         offset: 0,
-                        color: 'rgba(53,137,170,0.8)' // 0% 处的颜色
+                        color: 'rgba(19,193,240,0.6)' // 0% 处的颜色
                     }, {
                             offset: 0.5,
-                            color: 'rgba(53,137,170,0.6)' // 0% 处的颜色
+                            color: 'rgba(19,193,240,0.6)' // 0% 处的颜色
                     }, {
                         offset: 1,
-                        color: 'rgba(53,137,170,0.2)'// 100% 处的颜色
+                        color: 'rgba(19,193,240,0.2)'// 100% 处的颜色
                     }],
                     global: false // 缺省为 false
                 }
@@ -155,6 +157,42 @@ var myChartRyjcLeft;
 $(function(){
     myChartRyjcLeft = echarts.init(document.getElementById('left_ryjccqs_charts'));
     myChartRyjcLeft.setOption(option);
+
+    var names=[];    //类别数组（实际用来盛放X轴坐标值）
+    var nums=[];    //销量数组（实际用来盛放Y坐标值）
+
+    $.ajax({
+        type : "get",
+        url : urlPort+"/AccessDP/accEmp/getClockInTrend/allGroup",    //请求发送到TestServlet处
+        dataType : "json",        //返回数据形式为json
+        success : function(result) {
+            //请求成功时执行该函数内容，result即为服务器返回的json对象
+            if (result.message_code == "success") {
+                myChartRyjcLeft.setOption({        //加载数据图表
+                    xAxis: {
+                        data:result.object.dateList
+                    },
+                    series: [{
+                        // 根据名字对应到相应的系列
+                        name: '进厂',
+                        data: result.object.enterList
+                    },
+                        {
+                            // 根据名字对应到相应的系列
+                            name: '出厂',
+                            data: result.object.outList
+                        }]
+                });
+            }
+
+
+        },
+        error : function(errorMsg) {
+            //请求失败时执行该函数
+            alert("图表请求数据失败!");
+            myChartRyjcLeft.hideLoading();
+        }
+    });
     myChartRyjcLeft.resize();
 })
 
