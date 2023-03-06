@@ -5,7 +5,6 @@ let option = {
     tooltip: {
         trigger: 'axis',
         formatter:function(params){
-            debugger;
             let text = '';
             for(let i = 0;i<params.length;i++){
                 if(i==0){
@@ -162,10 +161,6 @@ var myChartRyjcLeft;
 $(function(){
     myChartRyjcLeft = echarts.init(document.getElementById('left_ryjccqs_charts'));
     myChartRyjcLeft.setOption(option);
-
-    var names=[];    //类别数组（实际用来盛放X轴坐标值）
-    var nums=[];    //销量数组（实际用来盛放Y坐标值）
-
     $.ajax({
         type : "get",
         url : urlPort+"/AccessDP/accEmp/getClockInTrend/allGroup",    //请求发送到TestServlet处
