@@ -1,3 +1,6 @@
+
+let jinccolor = "rgba(24,160,179)";
+let chuccolor = "rgba(71,121,227)";
 let option = {
     tooltip: {
         trigger: 'axis',
@@ -83,10 +86,11 @@ let option = {
             type: 'line',
             smooth: true,
             itemStyle: {
-                color: "rgba(85,250,229)"
+                // 85,250,229
+                color: jinccolor
             },
             lineStyle: {
-                color: 'rgba(85,250,229)',
+                color: jinccolor,
                 width: 2,
                 opacity: 1,
             },
@@ -101,13 +105,13 @@ let option = {
                     y2: 1,
                     colorStops: [{
                         offset: 0,
-                        color: 'rgba(85,250,229,0.6)' // 0% 处的颜色
+                        color: 'rgba(24,160,179,0.4)' // 0% 处的颜色
                     }, {
                         offset: 0.5,
-                        color: 'rgba(85,250,229,0.6)' // 0% 处的颜色
+                        color: 'rgba(24,160,179,0.4)' // 0% 处的颜色
                     }, {
                         offset: 1,
-                        color: 'rgba(85,250,229,0.2)'// 100% 处的颜色
+                        color: 'rgba(24,160,179,0.2)'// 100% 处的颜色
                     }],
                     global: false // 缺省为 false
                 }
@@ -119,10 +123,11 @@ let option = {
             type: 'line',
             smooth: true,
             itemStyle: {
-                color: "rgb(19,193,240)"
+                //19,193,240
+                color: chuccolor
             },
             lineStyle: {
-                color: 'rgb(19,193,240)',
+                color: chuccolor,
                 width: 2,
                 opacity: 1,
             },
@@ -137,13 +142,13 @@ let option = {
                     y2: 1,
                     colorStops: [{
                         offset: 0,
-                        color: 'rgba(19,193,240,0.6)' // 0% 处的颜色
+                        color: 'rgba(71,121,227,0.4)' // 0% 处的颜色
                     }, {
                             offset: 0.5,
-                            color: 'rgba(19,193,240,0.6)' // 0% 处的颜色
+                            color: 'rgba(71,121,227,0.4)' // 0% 处的颜色
                     }, {
                         offset: 1,
-                        color: 'rgba(19,193,240,0.2)'// 100% 处的颜色
+                        color: 'rgba(71,121,227,0.2)'// 100% 处的颜色
                     }],
                     global: false // 缺省为 false
                 }
