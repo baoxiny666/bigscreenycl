@@ -1,0 +1,50 @@
+.headtop_shuzikuang {
+    width:239px;
+    height:50px;
+    background-image:url('../../img/topkuang.png');
+    background-repeat:no-repeat;
+    background-size: 239px 50px;
+    background-position: center center;
+}
+
+.headtop_jincrs_renys{
+    width: 45px;
+    height: 50px;
+    font-size: 25px;
+    color: rgb(27,150,240);
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.headtop_titleys{
+    width:105px;
+    height:50px;
+    font-size:25px;
+    color: rgb(27,150,240);
+    font-weight: bold;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+#headtop_jincrs_sl{
+    position: relative;
+}
+#headtop_chucrs_sl{
+    position: relative;
+}
+#headtop_fangkrs_sl{
+    position: relative;
+}
+#headtop_dakcs_sl{
+    position: relative;
+}
+.slinabsolute{
+    position: absolute;
+    right: 10px;
+    top:10px;
+    letter-spacing:10px;
+    font-family: DS-Digital;
+    font-size:35px;
+    color:#ffffff;
+}

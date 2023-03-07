@@ -33,9 +33,6 @@
 	<div class="topCountDiv" >
 		<div class="titler"></div>
 		<div class="upper">
-			<div class=headTop">
-
-			</div>
 		</div>
 		<div class="middler">
 			<div class="topLeft">
@@ -61,7 +58,7 @@
 	function loadHeadTop(){
 		$.get(basePath+'innercode/headtop.html', function(data)
 		{
-			$('.headTop').html(data);
+			$('.upper').html(data);
 		});
 	}
 	function loadLeftHtml(){
