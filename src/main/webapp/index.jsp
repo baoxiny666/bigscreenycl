@@ -10,7 +10,8 @@
 	<title>大屏</title>
 	<script type="text/javascript">
 		var basePath = '<%=basePath%>';
-		var urlPort = "http://10.34.3.226:8080";
+		var urlPort = "http://10.1.0.150:9899";
+		var timeInterval = 30000;
 	</script>
 	<style type="text/css">
 		@font-face {

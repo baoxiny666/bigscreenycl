@@ -50,6 +50,8 @@ let option = {
         {
             type: 'value',
             splitLine:{show:false},
+            min:0,
+            max:30,
             axisLabel:{
                 show:true,
                 textStyle:{
@@ -92,7 +94,7 @@ let option = {
                     borderColor: "transparent"
                 }
             },
-            data: [120, 132, 101, 134, 90, 230, 210,67,210,34,56,34,56,35,26,78,45,34,23,100,120,110,233,102]
+            data: [0,10,2,4,6,8,4,3,2,5,2,4,5,6,2,3,4,5,6,7,5,4,3,2]
         }
     ]
 };
@@ -102,9 +104,38 @@ let myChartfkryjcrsfx;
 $(function(){
     myChartfkryjcrsfx = echarts.init(document.getElementById('middle_fkryjcrsfx_charts'));
     myChartfkryjcrsfx.setOption(option);
-    myChartfkryjcrsfx.resize();
+    Linefkryjcrsfx();
+    setInterval(function () {
+        Linefkryjcrsfx();
+    }, timeInterval);
+
 })
 
+function Linefkryjcrsfx(){
+    $.ajax({
+        type : "get",
+        url : urlPort+"/AccessDP/visitorinfo/getVisitorinfoIncomingTrend",    //请求发送到TestServlet处
+        dataType : "json",        //返回数据形式为json
+        success : function(result) {
+            //请求成功时执行该函数内容，result即为服务器返回的json对象
+            if (result.message_code == "success") {
+                myChartfkryjcrsfx.setOption({        //加载数据图表
+                    series: [
+                        {
+                            data: result.object
+                        }
+                    ]
+                });
+
+            }
+        },
+        error : function(errorMsg) {
+            //请求失败时执行该函数
+            alert("图表请求数据失败!");
+            myChartfkryjcrsfx.hideLoading();
+        }
+    });
+}
 
 //图表自适应窗口的大小
 window.addEventListener("resize", function () {

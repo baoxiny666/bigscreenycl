@@ -1,4 +1,4 @@
-
+let myChartRyjcLeft;
 let jinccolor = "rgba(24,160,179)";
 let chuccolor = "rgba(71,121,227)";
 let option = {
@@ -157,10 +157,16 @@ let option = {
     ]
 };
 
-var myChartRyjcLeft;
+
 $(function(){
     myChartRyjcLeft = echarts.init(document.getElementById('left_ryjccqs_charts'));
     myChartRyjcLeft.setOption(option);
+    lineryjccqs();
+    setInterval(function () {
+        lineryjccqs();
+    }, timeInterval);
+})
+function lineryjccqs(){
     $.ajax({
         type : "get",
         url : urlPort+"/AccessDP/accEmp/getClockInTrend/allGroup",    //请求发送到TestServlet处
@@ -193,8 +199,8 @@ $(function(){
             myChartRyjcLeft.hideLoading();
         }
     });
-    myChartRyjcLeft.resize();
-})
+}
+
 
 
 //图表自适应窗口的大小

@@ -1,4 +1,11 @@
 $(function () {
+    blockjccryfx();
+    setInterval(function () {
+        blockjccryfx();
+    }, timeInterval);
+
+})
+function blockjccryfx() {
     $.ajax({
         type : "get",
         url : urlPort+"/AccessDP/JrBaseDevicegroup/getTodayData",    //请求发送到TestServlet处
@@ -6,7 +13,7 @@ $(function () {
         success : function(result) {
             //请求成功时执行该函数内容，result即为服务器返回的json对象
             if (result.message_code == "success") {
-              $('#id6enter').html(result.object.outEnterPersonAnalyse.id6.enter);
+                $('#id6enter').html(result.object.outEnterPersonAnalyse.id6.enter);
                 $('#id10enter').html(result.object.outEnterPersonAnalyse.id10.enter);
                 $('#id13enter').html(result.object.outEnterPersonAnalyse.id13.enter);
                 $('#id8enter').html(result.object.outEnterPersonAnalyse.id8.enter);
@@ -35,4 +42,4 @@ $(function () {
             myChartRyjcLeft.hideLoading();
         }
     });
-})
+}

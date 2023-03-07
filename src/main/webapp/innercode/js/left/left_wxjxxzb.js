@@ -1,15 +1,7 @@
-let girl = 300;
-let boy = 700;
-let total1 = 1000;
-let per1 = 500;
-let per11 = 500;
-let total2 = 700;
-let per2 = 200;
-let per22 = 500;
-
 let wxjinccolor = "rgba(24,160,179)";
 let wxchuccolor = "rgba(71,121,227)";
-
+let myChartPieLeftPie1;
+let myChartPieLeftPie2;
 let color1 =[
     new echarts.graphic.LinearGradient(0, 0, 0, 1, [
         {offset: 0, color: wxjinccolor},
@@ -136,11 +128,16 @@ let option_right = {
     ]
 };
 $(function () {
-    var myChartPieLeftPie1 = echarts.init(document.getElementById('left_wxjxxzb_pie1'));
-    var myChartPieLeftPie2 = echarts.init(document.getElementById('left_wxjxxzb_pie2'));
+    myChartPieLeftPie1 = echarts.init(document.getElementById('left_wxjxxzb_pie1'));
+    myChartPieLeftPie2 = echarts.init(document.getElementById('left_wxjxxzb_pie2'));
     myChartPieLeftPie1.setOption(option_left);
     myChartPieLeftPie2.setOption(option_right);
-
+    PieLeftRightPiewxjxxzb();
+    setInterval(function () {
+        PieLeftRightPiewxjxxzb();
+    }, timeInterval);
+})
+function PieLeftRightPiewxjxxzb(){
     $.ajax({
         type : "get",
         url : urlPort+"/AccessDP/JrBaseDevicegroup/getImportAndExportRatio",    //请求发送到TestServlet处
@@ -204,7 +201,6 @@ $(function () {
 
                 myChartPieLeftPie2.setOption({        //加载数据图表
                     series: [
-
                         {
                             type: 'pie',
                             radius: ['70%', '55%'],
@@ -238,7 +234,6 @@ $(function () {
                                             },
                                         }
                                     }
-
                                 },
                                 {
                                     value: result.object.enter,
@@ -254,8 +249,6 @@ $(function () {
                             ]
                         }
                     ]
-
-
                 });
             }},error : function(errorMsg) {
             //请求失败时执行该函数
@@ -264,10 +257,11 @@ $(function () {
             myChartPieLeftPie2.hideLoading();
         }
     });
-    myChartPieLeftPie1.resize();
-    myChartPieLeftPie2.resize();
-})
+}
 
+function PieRightPiewxjxxzb(){
+
+}
 //图表自适应窗口的大小
 window.addEventListener("resize", function () {
     myChartPieLeftPie1.resize();
