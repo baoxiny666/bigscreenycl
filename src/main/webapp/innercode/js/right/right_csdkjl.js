@@ -5,13 +5,40 @@ let option = {
     },
     legend: {
         orient: 'vertical',
-        right:20
+        right:20,
+        top:40,
+        textStyle: {
+            color: '#FFFFFF'
+        },
+        data: [
+            "能环处","数字智能部","生产处","技术中心","财务处","保卫处","备件材料处","党群办公室","供应处","质量处","企管处","销售处","设备工程处"
+        ],
+        show: true,
+        icon: 'rect',
+        itemWidth: 20,
+        itemHeight: 10,
+        textStyle: {
+            rich: {
+                a: {
+                    align: 'left',
+                    color: '#00E4FF',
+                    padding: [0, 5, 0, 5],
+                },
+                b: {
+                    color: '#FFFFFF',
+                }
+            }
+        },
+        formatter: function(name) {
+            return '{a|'+name+'}'
+        }
     },
     series: [
         {
             name: '处室打卡记录',
             type: 'pie',
-            radius: ['40%', '60%'],
+            center: ['35%', '45%'],
+            radius: '60%',
             avoidLabelOverlap: true,
             itemStyle: {
                 normal: {
@@ -112,7 +139,7 @@ $(function(){
     myChartCsdkjiRight = echarts.init(document.getElementById('right_csdkjl_charts'));
     myChartCsdkjiRight.setOption(option);
     piecsdkji();
-    setInterval(function () {
+   setInterval(function () {
         piecsdkji();
     }, timeInterval);
 })
@@ -123,8 +150,23 @@ function piecsdkji(){
         dataType : "json",        //返回数据形式为json
         success : function(result) {
             //请求成功时执行该函数内容，result即为服务器返回的json对象
+            let legendList = new Array();
+            let lellmap = new Map();
             if (result.message_code == "success") {
-                myChartCsdkjiRight.setOption({        //加载数据图表
+                for(var lLi=0;lLi<result.object.length;lLi++){
+                    legendList.push(result.object[lLi].name);
+                    lellmap.set(result.object[lLi].name,result.object[lLi].value);
+                }
+                console.log(lellmap);
+                debugger;
+                myChartCsdkjiRight.setOption({        //加载数据图表,
+                    legend: {
+                        data: legendList,
+                        formatter: function(name) {
+                            debugger;
+                            return '{a|' + name + '}{b|'+lellmap.get(name)+'次}'
+                        }
+                    },
                     series: [{
                             data:result.object
                         }]
