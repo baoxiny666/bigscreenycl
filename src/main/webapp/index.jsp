@@ -32,7 +32,11 @@
 
 	<div class="topCountDiv" >
 		<div class="titler"></div>
-		<div class="upper"></div>
+		<div class="upper">
+			<div class=headTop">
+
+			</div>
+		</div>
 		<div class="middler">
 			<div class="topLeft">
 
@@ -48,10 +52,18 @@
 </body>
 <script type="text/javascript">
 	$(function(){
+		loadHeadTop();
 		loadLeftHtml();
 		loadMiddleHtml();
 		loadRightHtml();
 	})
+
+	function loadHeadTop(){
+		$.get(basePath+'innercode/headtop.html', function(data)
+		{
+			$('.headTop').html(data);
+		});
+	}
 	function loadLeftHtml(){
 		$.get(basePath+'innercode/left.html', function(data)
 		{

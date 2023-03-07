@@ -4,8 +4,6 @@ $(function(){
         blockdkcstj();
     }, timeInterval);
 })
-
-
 function  blockdkcstj() {
     $.ajax({
         type : "get",
