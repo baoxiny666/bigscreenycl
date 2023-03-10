@@ -9,7 +9,8 @@ let option = {
         right:20,
         top:100,
         textStyle: {
-            color: '#FFFFFF'
+            color: '#FFFFFF',
+            fontSize:15
         },
         data: [
             "炼铁厂","炼钢厂","动力厂","带钢厂","烧结厂"

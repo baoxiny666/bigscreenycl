@@ -9,7 +9,8 @@ let option = {
         right:20,
         top:40,
         textStyle: {
-            color: '#FFFFFF'
+            color: '#FFFFFF',
+            fontSize: 15
         },
         data: [
             "能环处","数字智能部","生产处","技术中心","财务处","保卫处","备件材料处","党群办公室","供应处","质量处","企管处","销售处","设备工程处"
@@ -31,7 +32,7 @@ let option = {
             }
         },
         formatter: function(name) {
-            return '{a|'+name+'}'
+            return '{a|'+name+'}{b|'+qqq[name]+'次}'
         }
     },
     series: [
