@@ -6,11 +6,11 @@ let option = {
     },
     legend: {
         orient: 'vertical',
-        right:20,
-        top:100,
-        textStyle: {
-            color: '#FFFFFF',
-            fontSize:15
+        right:30,
+        top:70,
+        textStyle: { //图例文字的样式
+            color: '#fff',
+            fontSize: 14
         },
         data: [
             "炼铁厂","炼钢厂","动力厂","带钢厂","烧结厂"
@@ -24,10 +24,12 @@ let option = {
                 a: {
                     align: 'left',
                     color: '#00E4FF',
+                    fontSize:14,
                     padding: [0, 5, 0, 5],
                 },
                 b: {
                     color: '#FFFFFF',
+                    fontSize:14
                 }
             }
         },
@@ -39,28 +41,18 @@ let option = {
         {
             name: '分厂打卡记录',
             type: 'pie',
-            center: ['35%', '45%'],
-            radius: '60%',
+            center: ['35%', '55%'],
+            radius: ['45%', '65%'],
             avoidLabelOverlap: true,
             itemStyle: {
                 normal: {
                     color: function (colors) {
                         var colorList = [
-                            '#fc8251',
-                            '#5470c6',
-                            '#91cd77',
-                            '#ef6567',
-                            '#f9c956',
-                            '#75bedc',
-                            '#75b435',
-                            '#ef6567',
-                            '#19c956',
-                            '#25bedc',
-                            '#851435',
-                            '#fc9951',
-                            '#5411c6',
-                            '#914577',
-                            '#136767',
+                            '#eeb80a',
+                            '#ee625f',
+                            '#3d8adf',
+                            '#23c9fd',
+                            '#2cfee5'
                         ];
                         return colorList[colors.dataIndex];
                     }
@@ -128,12 +120,10 @@ function piefcdkji(){
                     legendList.push(result.object[lLi].name);
                     lellmap.set(result.object[lLi].name,result.object[lLi].value);
                 }
-                debugger;
                 myChartfcdkjiRight.setOption({        //加载数据图表
                     legend: {
                         data: legendList,
                         formatter: function(name) {
-                            debugger;
                             return '{a|' + name + '}{b|'+lellmap.get(name)+'次}'
                         }
                     },
