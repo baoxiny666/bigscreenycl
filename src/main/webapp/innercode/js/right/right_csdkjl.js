@@ -95,6 +95,7 @@ function piecsdkji(){
             let cateTypeList = new Array();
             let dataList = new Array();
             if (result.message_code == "success") {
+                debugger;
                 for(var lLi=0;lLi<result.object.length;lLi++){
                     cateTypeList.push(result.object[lLi].name);
                     dataList.push(result.object[lLi].value);
@@ -102,7 +103,12 @@ function piecsdkji(){
                 console.log(cateTypeList);
                 console.log(dataList);
                 myChartCsdkjiRight.setOption({        //加载数据图表,
-
+                    // 图表内容
+                    series: [
+                        {
+                            type: "bar", // 图表类型
+                            data: dataList
+                        }]
                 });
             }
         },

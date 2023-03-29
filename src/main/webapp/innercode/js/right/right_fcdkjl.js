@@ -2,9 +2,11 @@ let myChartfcdkjiRight;
 let tdszArray = {"炼铁厂":1348,"炼钢厂":1278,"动力厂":448,"带钢厂":370,"烧结厂":990};
 let option = {
     tooltip: {
-        trigger: 'item'
+        trigger: 'item',
+        show: false
     },
     legend: {
+        selectedMode: false,
         orient: 'vertical',
         right:30,
         top:70,
@@ -41,9 +43,9 @@ let option = {
         {
             name: '分厂打卡记录',
             type: 'pie',
-            center: ['35%', '55%'],
+            center: ['29%', '45%'],
             radius: ['45%', '65%'],
-            avoidLabelOverlap: true,
+            avoidLabelOverlap: false,
             itemStyle: {
                 normal: {
                     color: function (colors) {

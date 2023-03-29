@@ -19,6 +19,10 @@ let color2 =[
 ];
 
 let option_left = {
+    tooltip: {
+        trigger: 'item',
+        show: false,transitionDuration: 0
+    },
     series: [
 
         {
@@ -75,6 +79,11 @@ let option_left = {
 
 
 let option_right = {
+    tooltip: {
+        trigger: 'item',
+        show: false,
+        transitionDuration: 0
+    },
     series: [
 
         {

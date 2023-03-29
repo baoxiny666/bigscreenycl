@@ -3,7 +3,7 @@
 }
 .right_csdkjl_out{
 	width: 480px;
-	height:525px;
+	height:555px;
 	display: flex;
 	justify-content:center;
 	align-items:center;
@@ -19,26 +19,26 @@
 }
 .right_csdkjl {
 	width:455px;
-	height:525px;
-	background-image:url('../../img/rightkk.png');
+	height:555px;
+	background-image:url('../../img/rightup.png');
 	background-repeat:no-repeat;
-	background-size: 455px 525px;
+	background-size: 455px 555px;
 	background-position: center center;
 }
 
 
 .right_fcdkjl_out{
 	width: 480px;
-	height:330px;
+	height:300px;
 	display: flex;
 	justify-content:center;
 	align-items:center;
 }
 .right_fcdkjl {
 	width:456px;
-	height:330px;
-	background-image:url('../../img/rightkk.png');
+	height:300px;
+	background-image:url('../../img/rightdown.png');
 	background-repeat:no-repeat;
-	background-size: 456px 330px;
+	background-size: 456px 300px;
 	background-position: center center;
 }
