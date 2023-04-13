@@ -1,5 +1,5 @@
 let myChartfcdkjiRight;
-let tdszArray = {"炼铁厂":1348,"炼钢厂":1278,"动力厂":448,"带钢厂":370,"烧结厂":990};
+let tdszArray = {"处室":900,"炼铁厂":1348,"炼钢厂":1278,"动力厂":448,"带钢厂":370,"烧结厂":990};
 let option = {
     tooltip: {
         trigger: 'item',
@@ -9,13 +9,13 @@ let option = {
         selectedMode: false,
         orient: 'vertical',
         right:30,
-        top:70,
+        top:50,
         textStyle: { //图例文字的样式
             color: '#fff',
-            fontSize: 14
+            fontSize: 16
         },
         data: [
-            "炼铁厂","炼钢厂","动力厂","带钢厂","烧结厂"
+            "处室","炼铁厂","炼钢厂","动力厂","带钢厂","烧结厂"
         ],
         show: true,
         icon: 'rect',
@@ -26,12 +26,12 @@ let option = {
                 a: {
                     align: 'left',
                     color: '#00E4FF',
-                    fontSize:14,
+                    fontSize:16,
                     padding: [0, 5, 0, 5],
                 },
                 b: {
                     color: '#FFFFFF',
-                    fontSize:14
+                    fontSize:16
                 }
             }
         },
@@ -54,7 +54,8 @@ let option = {
                             '#ee625f',
                             '#3d8adf',
                             '#23c9fd',
-                            '#2cfee5'
+                            '#2cfee5',
+                            '#ef475d'
                         ];
                         return colorList[colors.dataIndex];
                     }
@@ -75,6 +76,10 @@ let option = {
                 show: false
             },
             data: [
+                {
+                    "name": "处室",
+                    "value": 900
+                },
                 {
                     "name": "炼铁厂",
                     "value": 1348

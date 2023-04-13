@@ -107,7 +107,7 @@ $(function(){
     Linefkryjcrsfx();
     setInterval(function () {
         Linefkryjcrsfx();
-    }, timeInterval);
+    }, 600000);
 
 })
 
@@ -120,9 +120,34 @@ function Linefkryjcrsfx(){
             //请求成功时执行该函数内容，result即为服务器返回的json对象
             if (result.message_code == "success") {
                 myChartfkryjcrsfx.setOption({        //加载数据图表
+
+                    xAxis: [
+                        {
+                            type: 'category',
+                            boundaryGap: false,
+                            splitLine:{show:false}, //去除网状线 默认为true
+                            //用于设置y轴的字体
+                            axisLabel:{
+                                show:true,  //这里的show用于设置是否显示y轴下的字体 默认为true
+                                textStyle:{   //textStyle里面写y轴下的字体的样式
+                                    color:'#ffffff',
+                                    fontSize:13
+                                }
+                            },
+                            //用于设置y轴的那一条线
+                            axisLine:{
+                                show:true,  //这里的show用于设置是否显示y轴那一条线 默认为true
+                                lineStyle:{ //lineStyle里面写y轴那一条线的样式
+                                    color:'#475164',
+                                    width:2    //轴线的粗细 我写的是2 最小为0，值为0的时候线隐藏
+                                }
+                            },
+                            data: result.object.time
+                        }
+                    ],
                     series: [
                         {
-                            data: result.object
+                            data: result.object.data
                         }
                     ]
                 });

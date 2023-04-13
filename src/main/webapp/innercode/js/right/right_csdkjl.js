@@ -1,17 +1,25 @@
 let myChartCsdkjiRight;
-let qqq ={"能环处":8,"数字智能部":31,"生产处":353,"技术中心":188,"财务处":75,"保卫处":116,"备件材料处":14,"党群办公室":113,"供应处":12,"质量处":0,"企管处":33,"销售处":35,"设备工程处":51}
+let qqq ={"河北冶金":8,"唐山冠通":31,"宏晟物业":111,"河北冶建":188,"龙源惟德":75,"沃顿科技":116,"郑州振东":56,"唐山时创":113,"索海冶金":12,"四川宏远":50};
 let option =  {
     // 坐标轴
     grid: {
         top: "6%",
         left: "5%",
-        right: "5%",
+        right: "10%",
         bottom: "3%",
-        containLabel: true, //是否包含坐标轴的文字
+        containLabel: true
     },
     // X轴：横向柱状图，将xAxis的type设置为value
     xAxis: {
         type: "value",
+
+        axisLine: {
+            show: false
+        },
+        inverse: false,
+        axisTick: {
+            show: false
+        },
         show:false,
         axisTick: {       //x轴刻度线
             show: false
@@ -36,7 +44,6 @@ let option =  {
             color: '#ffffff',
             fontSize: 14
         },
-        rotate:45,
         axisTick: {       //x轴刻度线
             show: false
         },
@@ -47,13 +54,13 @@ let option =  {
             show: false
         },
 
-        data: ["能环处","数字智能部","生产处","技术中心","财务处","保卫处","备件材料处","党群办公室","供应处","质量处","企管处","销售处","设备工程处"]
+        data: ["河北冶金","唐山冠通","宏晟物业","河北冶建","龙源惟德","沃顿科技","郑州振东","唐山时创","索海冶金","四川宏远"]
     },
     // 图表内容
     series: [
         {
             type: "bar", // 图表类型
-            data: [13,11,56,34,34,23,23,23,12,45,34,23,45], // 数据
+            data: [13,11,56,34,34,23,23,23,12,45], // 数据
             barWidth: 10, // 柱的宽度
             // 柱上面的数值配置
             label: {
@@ -88,7 +95,7 @@ $(function(){
 function piecsdkji(){
     $.ajax({
         type : "get",
-        url : urlPort+"/AccessDP/JrBaseDevicegroup/getDivision",    //请求发送到TestServlet处
+        url : urlPort+"/AccessDP/JrBaseDevicegroup/getPunchTheClockOtherUnitsNumber",    //请求发送到TestServlet处
         dataType : "json",        //返回数据形式为json
         success : function(result) {
             //请求成功时执行该函数内容，result即为服务器返回的json对象
@@ -96,18 +103,21 @@ function piecsdkji(){
             let dataList = new Array();
             if (result.message_code == "success") {
                 debugger;
-                for(var lLi=0;lLi<result.object.length;lLi++){
+                for(var lLi=0;lLi<13;lLi++){
                     cateTypeList.push(result.object[lLi].name);
-                    dataList.push(result.object[lLi].value);
+                    dataList.push(result.object[lLi].total);
                 }
                 console.log(cateTypeList);
                 console.log(dataList);
                 myChartCsdkjiRight.setOption({        //加载数据图表,
                     // 图表内容
+                    yAxis: {
+                        data:cateTypeList.reverse()
+                    },
                     series: [
                         {
                             type: "bar", // 图表类型
-                            data: dataList
+                            data: dataList.reverse()
                         }]
                 });
             }

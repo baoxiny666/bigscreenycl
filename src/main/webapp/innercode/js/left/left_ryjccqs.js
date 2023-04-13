@@ -61,8 +61,8 @@ let option = {
         {
             type: 'value',
             splitLine:{show:false},
-            min:3000,
-            max:7000,
+            min:100,
+            max:2500,
             axisLabel:{
                 show:true,
                 textStyle:{
@@ -164,7 +164,7 @@ $(function(){
     lineryjccqs();
     setInterval(function () {
         lineryjccqs();
-    }, timeInterval);
+    }, 24*60*60*1000);
 })
 function lineryjccqs(){
     $.ajax({
