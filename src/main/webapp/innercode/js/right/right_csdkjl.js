@@ -3,10 +3,10 @@ let qqq ={"河北冶金":8,"唐山冠通":31,"宏晟物业":111,"河北冶建":1
 let option =  {
     // 坐标轴
     grid: {
-        top: "6%",
+        top: "7%",
         left: "5%",
         right: "10%",
-        bottom: "3%",
+        bottom: "0%",
         containLabel: true
     },
     // X轴：横向柱状图，将xAxis的type设置为value
